@@ -15,8 +15,7 @@ import screen.com.multiplesizes.R;
 
 public class MainActivity extends AppCompatActivity {
     // Remove the below line after defining your own ad unit ID.
-    private static final String TOAST_TEXT = "Test ads are being shown. "
-            + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
+    private static final String TOAST_TEXT = "Las publicidades empezaran a mostrarse";
 
     private static final int START_LEVEL = 1;
     private int mLevel;
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
-            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "La publicidad no pudo ser leida", Toast.LENGTH_SHORT).show();
             goToNextLevel();
         }
     }
@@ -90,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         mNextLevelButton.setEnabled(true);
         AdRequest request = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template")
-                /*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators*/
-                .addTestDevice("D9B26731969B87BBCF8213A11376DCBF")  // My Nexus test phone
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators*/
+                .addTestDevice("D9B26731969B87BBCF8213A11376DCBF")  // My test phone
                 .build();
         mInterstitialAd.loadAd(request);
 
