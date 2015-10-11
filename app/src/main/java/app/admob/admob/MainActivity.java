@@ -15,7 +15,7 @@ import screen.com.multiplesizes.R;
 
 public class MainActivity extends AppCompatActivity {
     // Remove the below line after defining your own ad unit ID.
-    private static final String TOAST_TEXT = "Las publicidades empezaran a mostrarse";
+    private static final String TOAST_TEXT = "Publicidades van a ser mostradas";
 
     private static final int START_LEVEL = 1;
     private int mLevel;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
-            Toast.makeText(this, "La publicidad no pudo ser leida", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "NO pudo ser leida", Toast.LENGTH_SHORT).show();
             goToNextLevel();
         }
     }
@@ -89,8 +89,10 @@ public class MainActivity extends AppCompatActivity {
         mNextLevelButton.setEnabled(true);
         AdRequest request = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template")
-                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators*/
-                .addTestDevice("D9B26731969B87BBCF8213A11376DCBF")  // My test phone
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+                /*.addTestDevice("D9B26731969B87BBCF8213A11376DCBF")  // S4
+                .addTestDevice("B679BA94D3C1FBCB5A6C3E5092356841")  // Moto X
+                .addTestDevice("6391363B6002FC9201B17FCE94A0D1A4")  // Nexus 7*/
                 .build();
         mInterstitialAd.loadAd(request);
 
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToNextLevel() {
         // Show the next level and reload the ad to prepare for the level after.
-        mLevelTextView.setText("Generando $0." + (++mLevel));
+        mLevelTextView.setText("$0.0 " + (++mLevel) + "Generados ");
         mInterstitialAd = newInterstitialAd();
         loadInterstitial();
     }
