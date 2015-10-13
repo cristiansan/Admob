@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToNextLevel() {
         // Show the next level and reload the ad to prepare for the level after.
-        mLevelTextView.setText("$0.0 " + (++mLevel) + "Generados ");
+        mLevelTextView.setText("$0.0" + (++mLevel) + " fueron generados ");
         mInterstitialAd = newInterstitialAd();
         loadInterstitial();
     }
